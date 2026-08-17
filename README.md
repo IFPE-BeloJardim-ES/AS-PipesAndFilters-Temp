@@ -93,3 +93,14 @@ Pronto. Nenhum código existente precisou ser modificado.
 O enunciado do exercício para casa está em `ATIVIDADE.txt`. O fluxo é:
 fazer um **fork** deste repositório, criar os filtros em uma branch e abrir
 um **Pull Request** com as mudanças.
+
+## Respostas do Exercício
+
+a) **O Pipeline 2 deu o mesmo resultado do Pipeline 1? Por quê?**  
+Neste texto específico sim, pois a palavra "Software" nem estava presente na entrada. Porém, a ordem pode alterar o resultado caso o Replace estivesse buscando algo com formatação prévia (por exemplo, buscando padrões com múltiplos espaços antes do Trim).
+
+b) **Você precisou abrir o `pipe.py` em algum momento?**  
+Não. O Pipe interage apenas com a interface genérica Filter, sem necessitar de alterações para aceitar novos filtros concretos.
+
+c) **Se amanhã fosse preciso adicionar mais dez filtros, quantos arquivos que já existem teriam que ser modificados?**  
+Apenas 2 arquivos existentes: `filters/__init__.py` (para exportar) e `main.py` (para utilizar no pipeline).
