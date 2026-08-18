@@ -6,15 +6,18 @@ propriedade que a arquitetura Pipes and Filters entrega.
 """
 
 from pipes_filters.pipe import Pipe
-from pipes_filters.filters import UppercaseFilter, ReverseFilter
+# Adicione o seu novo filtro na importação abaixo:
+from pipes_filters.filters import UppercaseFilter, ReverseFilter, RemoveSpacesFilter
 
 
 def main() -> None:
     entrada = "Arquitetura de Software"
 
+    # Adicione o seu filtro chamando mais um .add() na ordem desejada
     pipeline = (
         Pipe()
         .add(UppercaseFilter())
+        .add(RemoveSpacesFilter())  # <-- Seu novo filtro plugado aqui
         .add(ReverseFilter())
     )
 
