@@ -46,3 +46,22 @@ def test_filtro_novo_nao_exige_alteracao_no_pipe():
             return data + "!"
 
     assert Pipe().add(ExclamacaoFilter()).run("oi") == "oi!"
+
+
+def test_trim_filter_isolado():
+    from pipes_filters.filters import TrimFilter
+    assert TrimFilter().execute("   Arquitetura   de    Software  ") == "Arquitetura de Software"
+
+
+def test_replace_filter_isolado():
+    from pipes_filters.filters import ReplaceFilter
+    assert ReplaceFilter("Software", "Sistemas").execute("Arquitetura de Software") == "Arquitetura de Sistemas"
+
+
+def test_mask_cpf_filter_isolado():
+    from pipes_filters.filters import MaskCpfFilter
+    # Testando com formatação
+    assert MaskCpfFilter().execute("O CPF é 123.456.789-00.") == "O CPF é ***.***.***-**."
+    # Testando sem formatação
+    assert MaskCpfFilter().execute("O CPF é 12345678900.") == "O CPF é ***.***.***-**."
+
