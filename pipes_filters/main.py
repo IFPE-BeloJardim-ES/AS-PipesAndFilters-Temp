@@ -5,24 +5,37 @@ Nem o Pipe nem os filtros existentes precisam ser tocados -- essa e a
 propriedade que a arquitetura Pipes and Filters entrega.
 """
 
+from pipes_filters.filters import ReplaceFilter
+from dataclasses import replace
 from pipes_filters.pipe import Pipe
-from pipes_filters.filters import UppercaseFilter, ReverseFilter
+from pipes_filters.filters import UppercaseFilter, ReverseFilter, TrimFilter
 
 
 def main() -> None:
-    entrada = "Arquitetura de Software"
+    entrada = "   O   cliente João  da  Silva,  CPF 123.456.789-00  "
 
-    pipeline = (
+    pipeline1 = (
         Pipe()
-        .add(UppercaseFilter())
-        .add(ReverseFilter())
+        .add(TrimFilter())
+        .add(ReplaceFilter("João", "Maria"))
     )
 
-    saida = pipeline.run(entrada)
+    pipeline2 = (
+        Pipe()
+        .add(ReplaceFilter("João", "Maria"))
+        .add(TrimFilter())
+    )
 
-    print("Pipeline montado :", pipeline)
+    saida1 = pipeline1.run(entrada)
+    saida2 = pipeline2.run(entrada)
+
+    print("Pipeline 1 montado :", pipeline1)
     print("Entrada          :", repr(entrada))
-    print("Saida            :", repr(saida))
+    print("Saida            :", repr(saida1))
+
+    print("Pipeline 2 montado :", pipeline2)
+    print("Entrada          :", repr(entrada))
+    print("Saida            :", repr(saida2))
 
 
 if __name__ == "__main__":

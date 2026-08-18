@@ -93,3 +93,18 @@ Pronto. Nenhum código existente precisou ser modificado.
 O enunciado do exercício para casa está em `ATIVIDADE.txt`. O fluxo é:
 fazer um **fork** deste repositório, criar os filtros em uma branch e abrir
 um **Pull Request** com as mudanças.
+
+## Respostas
+
+1. O Pipeline 2 deu o mesmo resultado do Pipeline 1? Por quê?
+
+**R: Como o TrimFilter mexe nos espaços e o ReplaceFilter mexe em uma palavra específica que não tem espaços ao redor, a ordem não importa nesse caso. Mas se você usasse o Replace para trocar "Silva" por "Silva " (com espaços), aí a ordem mudaria o resultado**
+
+2. Você precisou abrir o `pipe.py` em algum momento?
+
+**R: Abri apenas para visualiza-lo**
+
+3. Se amanhã fosse preciso adicionar mais dez filtros, quantos arquivos
+   que já existem teriam que ser modificados?
+
+**R: Apenas os arquivos `__init__.py` e `main.py`**
