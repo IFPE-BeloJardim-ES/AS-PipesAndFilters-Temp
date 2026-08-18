@@ -93,3 +93,11 @@ Pronto. Nenhum código existente precisou ser modificado.
 O enunciado do exercício para casa está em `ATIVIDADE.txt`. O fluxo é:
 fazer um **fork** deste repositório, criar os filtros em uma branch e abrir
 um **Pull Request** com as mudanças.
+
+## Resposta 
+
+a) Sim, o Pipeline2 deu o mesmo resultado do Pipeline1, pois a implementação dos dois filtros não conflitam entre si, são independentes.
+
+b) Não, eu não precisei abrir o `pipe.py` em nenhum momento.
+
+c) Se amanhã fosse preciso adicionar mais dez filtros, eu só precisaria modificar o `main.py` e o `pipes_filters/filters/__init__.py`.

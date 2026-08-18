@@ -6,23 +6,58 @@ propriedade que a arquitetura Pipes and Filters entrega.
 """
 
 from pipes_filters.pipe import Pipe
-from pipes_filters.filters import UppercaseFilter, ReverseFilter
+from pipes_filters.filters import UppercaseFilter, ReverseFilter, TrimFilter, ReplaceFilter, WordCounterFilter, MaskCpfFilter
 
 
 def main() -> None:
-    entrada = "Arquitetura de Software"
+    entrada = "   O   cliente João  da  Silva,  CPF 123.456.789-00  "
 
-    pipeline = (
+    # pipeline = (
+    #     Pipe()
+    #     .add(UppercaseFilter())
+    #     .add(ReverseFilter())
+    # )
+
+    pipeline1 = (
         Pipe()
-        .add(UppercaseFilter())
-        .add(ReverseFilter())
+        .add(TrimFilter())
+        .add(ReplaceFilter("João", "Xavier"))
     )
 
-    saida = pipeline.run(entrada)
+    pipeline2 = (
+        Pipe()
+        .add(ReplaceFilter("João", "Xavier"))
+        .add(TrimFilter())
+        .add(WordCounterFilter())
+    )
 
-    print("Pipeline montado :", pipeline)
-    print("Entrada          :", repr(entrada))
-    print("Saida            :", repr(saida))
+    pipeline3 = (
+        Pipe()
+        .add(ReplaceFilter(".", ""))
+        .add(ReplaceFilter("-", ""))
+        .add(TrimFilter())
+        .add(MaskCpfFilter())
+    )
+
+    saida1 = pipeline1.run(entrada)
+    saida2 = pipeline2.run(entrada)
+    saida3 = pipeline3.run(entrada)
+
+    print(
+        f"""
+        Pipeline 1 montado : {pipeline1}
+        Entrada 1          : {repr(entrada)}
+        Saida 1            : {repr(saida1)}
+
+        Pipeline 2 montado : {pipeline2}
+        Entrada 2          : {repr(entrada)}
+        Saida 2            : {repr(saida2)}
+
+        Pipeline 3 montado : {pipeline3}
+        Entrada 3          : {repr(entrada)}
+        Saida 3            : {repr(saida3)}
+
+        """)
 
 
 if __name__ == "__main__":
