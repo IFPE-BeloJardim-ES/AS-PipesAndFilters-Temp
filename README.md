@@ -93,3 +93,13 @@ Pronto. Nenhum código existente precisou ser modificado.
 O enunciado do exercício para casa está em `ATIVIDADE.txt`. O fluxo é:
 fazer um **fork** deste repositório, criar os filtros em uma branch e abrir
 um **Pull Request** com as mudanças.
+
+
+PERGUNTA:  O Pipeline 2 deu o mesmo resultado do Pipeline 1? Por quê?
+RESPOSTA:Depende  da palavra que está sendo substituída. No exemplo acima (substituindo "cliente"), o resultado final é igual. Porém, a ordem dos filtros importa. Se tentássemos substituir uma sequência de espaços específicos, como " O ", o Pipeline 1 falharia na substituição, pois o TrimFilter já teria removido os espaços extras antes do ReplaceFilter agir
+
+PERGUNTA:Você precisou abrir o pipe.py em algum momento?
+RESPOSTA:arquitetura do projeto nos permite introduzir novos comportamentos (estender o sistema) criando novos filtros independentes, sem a necessidade de modificar o pipe
+
+PERGUNTA:Se amanhã fosse preciso adicionar mais dez filtros, quantos arquivos que já existem teriam que ser modificados?
+RESPOSTA:dois arquivos, o pipes_filters/filters/__init__.py (para importar e registrar as novas classes) e o main.py (para instanciá-los e adicioná-los no fluxo de execução). Todo o resto do núcleo do sistema permaneceria igual
