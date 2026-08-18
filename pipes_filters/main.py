@@ -6,7 +6,7 @@ propriedade que a arquitetura Pipes and Filters entrega.
 """
 
 from pipes_filters.pipe import Pipe
-from pipes_filters.filters import UppercaseFilter, ReverseFilter, TrimFilter, ReplaceFilter
+from pipes_filters.filters import UppercaseFilter, ReverseFilter, TrimFilter, ReplaceFilter, WordCounterFilter, MaskCpfFilter
 
 
 def main() -> None:
@@ -28,10 +28,20 @@ def main() -> None:
         Pipe()
         .add(ReplaceFilter("João", "Xavier"))
         .add(TrimFilter())
+        .add(WordCounterFilter())
+    )
+
+    pipeline3 = (
+        Pipe()
+        .add(ReplaceFilter(".", ""))
+        .add(ReplaceFilter("-", ""))
+        .add(TrimFilter())
+        .add(MaskCpfFilter())
     )
 
     saida1 = pipeline1.run(entrada)
     saida2 = pipeline2.run(entrada)
+    saida3 = pipeline3.run(entrada)
 
     print(
         f"""
@@ -42,6 +52,10 @@ def main() -> None:
         Pipeline 2 montado : {pipeline2}
         Entrada 2          : {repr(entrada)}
         Saida 2            : {repr(saida2)}
+
+        Pipeline 3 montado : {pipeline3}
+        Entrada 3          : {repr(entrada)}
+        Saida 3            : {repr(saida3)}
 
         """)
 
