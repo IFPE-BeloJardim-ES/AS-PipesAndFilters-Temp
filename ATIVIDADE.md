@@ -119,11 +119,14 @@ Imprima a entrada e a saída de cada um.
 ### Responda no README do seu fork (duas ou três linhas bastam)
 
 a) O Pipeline 2 deu o mesmo resultado do Pipeline 1? Por quê?
+- Resposta: Deu o mesmo resultado, pois os filtros só trocaram a ordem de "Concertar", mas no final fazem a mesma coisa.
 
 b) Você precisou abrir o `pipe.py` em algum momento?
+- Resposta: Sim, mas só para olhar e confrimar os nomes das definições.
 
 c) Se amanhã fosse preciso adicionar mais dez filtros, quantos arquivos
 que já existem teriam que ser modificados?
+- Resposta: Dois arquivos, isso sem contar os novos 10.
 
 ## Parte opcional
 
