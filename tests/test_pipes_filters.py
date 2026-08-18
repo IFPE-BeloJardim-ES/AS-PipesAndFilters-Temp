@@ -7,7 +7,7 @@ pipeline nenhum. Isso e consequencia direta da arquitetura.
 import pytest
 
 from pipes_filters import Pipe, Filter
-from pipes_filters.filters import UppercaseFilter, ReverseFilter
+from pipes_filters.filters import UppercaseFilter, ReverseFilter, ReplaceFilter, TrimFilter
 
 
 def test_uppercase_isolado():
@@ -46,3 +46,9 @@ def test_filtro_novo_nao_exige_alteracao_no_pipe():
             return data + "!"
 
     assert Pipe().add(ExclamacaoFilter()).run("oi") == "oi!"
+
+def test_filtro_replace():
+    assert Pipe().add(ReplaceFilter("Engenharia", "Arquitetura")).run("Engenharia de software") == "Arquitetura de software"
+
+def test_filtro_trimFilter():
+    assert Pipe().add(TrimFilter()).run("           Engenharia  de  Software         ") == "Engenharia de Software"
