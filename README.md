@@ -93,3 +93,17 @@ Pronto. Nenhum código existente precisou ser modificado.
 O enunciado do exercício para casa está em `ATIVIDADE.txt`. O fluxo é:
 fazer um **fork** deste repositório, criar os filtros em uma branch e abrir
 um **Pull Request** com as mudanças.
+
+
+a) O Pipeline 2 deu o mesmo resultado do Pipeline 1? Por quê?
+
+O resultado foi o mesmo, porquê a ordem dos filtros que estavam na pipeline não interferiam na saída final.
+
+b) Você precisou abrir o `pipe.py` em algum momento?
+
+Não, só abri por conta da explicação da atividade e após ser mencionado nesta pergunta.
+
+c) Se amanhã fosse preciso adicionar mais dez filtros, quantos arquivos
+que já existem teriam que ser modificados?
+
+Só iria modificar o "_init_.py" e "main.py" para adicionar os outros filtros que seriam criados.
