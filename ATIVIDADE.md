@@ -120,10 +120,16 @@ Imprima a entrada e a saída de cada um.
 
 a) O Pipeline 2 deu o mesmo resultado do Pipeline 1? Por quê?
 
+Sim, no geral, o Pipeline 2 dá o mesmo resultado do Pipeline 1 para esse caso. Porque os dois filtros são aplicados sobre a mesma entrada e, nesse exemplo específico, a ordem não muda o resultado final
+
 b) Você precisou abrir o `pipe.py` em algum momento?
+
+Não. O Pipe já aceita qualquer filtro que implemente a interface Filter, então bastou criar os filtros e registrá-los no filters/__init__.py e no main.py.
 
 c) Se amanhã fosse preciso adicionar mais dez filtros, quantos arquivos
 que já existem teriam que ser modificados?
+
+Zero. Só seriam criados novos arquivos de filtro e o filters/__init__.py, main.py seriam atualizados para registrá-los e usá-los. O conceito da arquitetura é justamente: o pipeline continua funcionando sem mexer na estrutura central.
 
 ## Parte opcional
 
