@@ -6,23 +6,33 @@ propriedade que a arquitetura Pipes and Filters entrega.
 """
 
 from pipes_filters.pipe import Pipe
-from pipes_filters.filters import UppercaseFilter, ReverseFilter
+from pipes_filters.filters import UppercaseFilter, ReverseFilter, TrimFilter, ReplaceFilter
 
 
 def main() -> None:
-    entrada = "Arquitetura de Software"
+    entrada = "   O   cliente João  da  Silva,  CPF 123.456.789-00  "
 
-    pipeline = (
+    pipeline1 = (
         Pipe()
-        .add(UppercaseFilter())
-        .add(ReverseFilter())
+        .add(TrimFilter())
+        .add(ReplaceFilter("Silva", "Souza"))
     )
+    saida1 = pipeline1.run(entrada)
 
-    saida = pipeline.run(entrada)
+    pipeline2 = (
+        Pipe()
+        .add(ReplaceFilter("Silva", "Souza"))
+        .add(TrimFilter())
+    )
+    saida2 = pipeline2.run(entrada)
 
-    print("Pipeline montado :", pipeline)
-    print("Entrada          :", repr(entrada))
-    print("Saida            :", repr(saida))
+    print("Pipeline 1 montado :", pipeline1)
+    print("Entrada            :", repr(entrada))
+    print("Saida 1            :", repr(saida1))
+    print()
+    print("Pipeline 2 montado :", pipeline2)
+    print("Entrada            :", repr(entrada))
+    print("Saida 2            :", repr(saida2))
 
 
 if __name__ == "__main__":
