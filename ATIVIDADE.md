@@ -118,12 +118,12 @@ Imprima a entrada e a saída de cada um.
 
 ### Responda no README do seu fork (duas ou três linhas bastam)
 
-a) O Pipeline 2 deu o mesmo resultado do Pipeline 1? Por quê?
+a) O Pipeline 2 deu o mesmo resultado do Pipeline 1? Por quê? Porque o ele a palavra era diferente do esperado, por isso não mudou
 
-b) Você precisou abrir o `pipe.py` em algum momento?
+b) Você precisou abrir o `pipe.py` em algum momento? Não 
 
 c) Se amanhã fosse preciso adicionar mais dez filtros, quantos arquivos
-que já existem teriam que ser modificados?
+que já existem teriam que ser modificados? O main e os filtros precisam ser alterados para reconhcer as alterações.
 
 ## Parte opcional
 
